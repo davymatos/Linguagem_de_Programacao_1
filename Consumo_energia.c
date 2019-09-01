@@ -3,9 +3,7 @@
 #include <conio.h>
 #include <locale.h>
 
-#define i 0.3626;
-
-int tot(float n1, float n2){
+/*int tot(float n1, float n2){
 	float result;
 	result = n1 * n2;
 	return(result);
@@ -15,13 +13,21 @@ int reaj(float n1){
 	float result;
 	result = (n1 * 0.3626) + n1;
 	return(result);
-}
+}*/
 
 int main(){
 	setlocale(LC_ALL, "Portuguese");
 	int qa, qhd, qdm, apar;
 	float tarifa, p ,consumo, acum_consumo, total, reajuste, pr;
 	
+	qdm = 0;
+	qhd = 0;
+	qa = 0;
+	apar = 0;
+	consumo = 0;
+	p = 0;
+	tarifa = 0;
+	pr = 0;
 	acum_consumo = 0;
 	total = 0;
 	reajuste = 0;
@@ -29,7 +35,7 @@ int main(){
 	printf("+==========================================================+\n");
 	printf("|BEM VINDO                                                 |\n");
 	printf("|CALCULE AQUI O VALOR DE ENERGIA ELETRICA CONSUMIDA NO IFBA|\n");
-	printf("|Digite o valor da tarifa:                                 |\n");
+	printf("|Digite o valor da tarifa: ");
 	scanf("|%f                                                        |\n", &tarifa);
 	printf("|ANALISE DE SETORES DA INSTITUIÇÃO                         |\n");
 	printf("|RESPONDA O QUESTIONARIO ABAIXO                            |\n");
@@ -48,9 +54,10 @@ int main(){
 		printf("Fica ligado quantas dias por mês? \n");
 		scanf("%d", &qdm);
 		
-		pr = (p/1000);
-		consumo = ((qhd * qdm)* pr)* qa;
-		acum_consumo = acum_consumo + consumo;	  		   	
+		pr = p/1000;
+		consumo = ((qhd * qdm) * pr) * qa;
+		acum_consumo = acum_consumo + consumo;
+		 		   	
 	}
 	system("cls");
 	
@@ -130,10 +137,13 @@ int main(){
 	}
 	system("cls");
 	
-	total = tot(tarifa,acum_consumo);
-	reajuste = reaj(total);
+	//total = tot(tarifa,acum_consumo);
+	//reajuste = reaj(total);
 	
-	printf("%f\n", acum_consumo);
+	total = (tarifa * acum_consumo);
+	reajuste = (total * 0.3626) + total;
+	
+	printf("O consumo de energia é de: %f kWh\n", acum_consumo);
 	printf("%f\n", total);
 	printf("%f\n", reajuste);
 	
