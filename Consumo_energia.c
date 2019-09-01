@@ -16,18 +16,18 @@ int reaj(float n1){
 }*/
 
 int main(){
-	setlocale(LC_ALL, "Portuguese");
+	setlocale(LC_ALL, "Portuguese"); //Metodo da linguagem
 	int qa, qhd, qdm, apar;
 	float tarifa, p ,consumo, acum_consumo, total, reajuste, pr;
 	
-	qdm = 0;
-	qhd = 0;
-	qa = 0;
-	apar = 0;
+	qdm = 0; //Quantidade de dias no mês
+	qhd = 0; //Quantidade de horas no dia
+	qa = 0; // Quantidade de aparenhos
+	apar = 0; // Aparelho
 	consumo = 0;
-	p = 0;
+	p = 0; // Potência
 	tarifa = 0;
-	pr = 0;
+	pr = 0; //Potência dividida por 100
 	acum_consumo = 0;
 	total = 0;
 	reajuste = 0;
@@ -39,7 +39,10 @@ int main(){
 	scanf("|%f                                                        |\n", &tarifa);
 	printf("|ANALISE DE SETORES DA INSTITUIÇÃO                         |\n");
 	printf("|RESPONDA O QUESTIONARIO ABAIXO                            |\n");
+	printf("|DIGITE 1 PARA [SIM] E 0 PARA [NÃO]                        |\n");
 	printf("+==========================================================+\n");
+	
+	// Condicionais e calculos dos aparelhos por setor
 	
 	fflush(stdin);
 	printf("Neste setor tem ar condiconado? \n");
@@ -54,13 +57,14 @@ int main(){
 		printf("Fica ligado quantas dias por mês? \n");
 		scanf("%d", &qdm);
 		
-		pr = p/1000;
-		consumo = ((qhd * qdm) * pr) * qa;
-		acum_consumo = acum_consumo + consumo;
+		pr = (p/1000); // Calculo de potencia -- kWh
+		consumo = ((qhd * qdm) * pr) * qa; // Calculo do consumo
+		acum_consumo = acum_consumo + consumo; // Acumulador do consumo dos aparelhos
 		 		   	
 	}
-	system("cls");
+	system("cls"); // Limpar a tela
 	
+	printf("DIGITE 1 PARA [SIM] E 0 PARA [NÃO]");
 	fflush(stdin);
 	printf("Neste setor tem geladeira? \n");
 	scanf("%d", &apar);
@@ -80,6 +84,7 @@ int main(){
 	}
 	system("cls");
 	
+	printf("DIGITE 1 PARA [SIM] E 0 PARA [NÃO]");
 	fflush(stdin);
 	printf("Neste setor tem televisores? \n");
 	scanf("%d", &apar);
@@ -99,6 +104,7 @@ int main(){
 	}
 	system("cls");
 	
+	printf("DIGITE 1 PARA [SIM] E 0 PARA [NÃO]");
 	fflush(stdin);
 	printf("Neste setor tem computador? \n");
 	scanf("%d", &apar);
@@ -118,6 +124,7 @@ int main(){
 	}
 	system("cls");
 	
+	printf("DIGITE 1 PARA [SIM] E 0 PARA [NÃO]");
 	fflush(stdin);
 	printf("Neste setor tem lampada? \n");
 	scanf("%d", &apar);
@@ -144,8 +151,8 @@ int main(){
 	reajuste = (total * 0.3626) + total;
 	
 	printf("O consumo de energia é de: %f kWh\n", acum_consumo);
-	printf("%f\n", total);
-	printf("%f\n", reajuste);
+	printf("O total a pagar é de: R$%f\n", total);
+	printf("O valor reajustado e de: R$%f\n", reajuste);
 	
 	getch();
 	return 0;
