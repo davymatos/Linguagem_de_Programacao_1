@@ -2,18 +2,18 @@
 #include <stdlib.h>
 
 int main() {
-	int num1, num2, soma;
+	int a, b, x;
 	printf ("Digite um numero \n");
-	scanf ("%d", &num1);
+	scanf ("%d", &a);
 	printf ("Digite outro numero \n");
-	scanf ("%d", &num2);
-	soma = num1 + num2;
+	scanf ("%d", &b);
+	x = a + b;
 		
-		if(soma >= 10){
-			printf ("O novo numero agora sera: %d: ", soma + 5);
+		if(x >= 10){
+			printf ("O novo numero agora sera: %d: ", x + 5);
 		}
 		else{
-			printf ("O novo numero agora sera: %d ", soma - 7);
+			printf ("O novo numero agora sera: %d ", x - 7);
 		}
 		
 	return 0;
